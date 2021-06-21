@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="bb">
+  
+    <script>
+        // $.get("http://localhost/v6/demo/1.php",{},(res)=>{
+        //     console.log(res);
+        // })
+
+        // function aa(v){
+        //     console.log(v);
+        // }
+
+         let url = "http://localhost/v6/demo/1.php";
+        // let src = document.createElement("script");
+        // src.setAttribute("src",url);
+        // document.getElementById('bb').appendChild(src)
+         //jquery 封装的ajax 跨域
+        $.ajax({
+            type:"get",
+            url:url,
+            dataType:"jsonp",   // ajax 跨域 这里变成jsonp
+            jsonpCallback:"aa",  //使用jsonp的时候 , 回调函数的函数名  服务器调用的那个函数名
+            success(res){
+                console.log(res)
+                },
+                error(data){
+                    console.log(123);
+                }
+            })
+    </script>
+</body>
+</html>
